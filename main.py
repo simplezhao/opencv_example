@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import time
 #cap = cv2.VideoCapture(1)
-img = cv2.imread('test_red3.png')
+img = cv2.imread('test_red.png')
 kernal = np.ones((5,5), np.uint8)
 imgray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 # BGR
@@ -11,7 +11,7 @@ image, contours, hierarchy = cv2.findContours(thresh,cv2.RETR_LIST,
                                               cv2.CHAIN_APPROX_SIMPLE)
 
 img = cv2.drawContours(img, contours, 1, (0,255,0), 3)
-cnt = contours[0]
+cnt = contours[1]
 M = cv2.moments(cnt)
 print(M)
 cx = int(M['m10']/M['m00'])
